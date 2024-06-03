@@ -36,18 +36,23 @@ function cipherCharacter(char) {
 // Receive message from the user
 let messageToCipher = prompt("Enter your message to be ciphered: ");
 
-// Cipher the message by each character in the string
-for (i = 0; i < messageToCipher.length; i++) {
-  let charToCipher = messageToCipher[i];
-  // Checks if the letter is part of the alphabet, if not, it is not ciphered
-  if (isLetter(charToCipher)) {
-    let cipheredChar = cipherCharacter(charToCipher);
-    cipheredMessage = cipheredMessage + cipheredChar;
-  } else {
-    cipheredMessage = cipheredMessage + charToCipher;
+// Alert user if nothing was entered into the prompt
+if (messageToCipher.trim().length == 0) {
+  alert("Nothing was entered into the prompt, please refresh.");
+} else {
+  // Cipher the message by each character in the string
+  for (i = 0; i < messageToCipher.length; i++) {
+    let charToCipher = messageToCipher[i];
+    // Checks if the letter is part of the alphabet, if not, it is not ciphered
+    if (isLetter(charToCipher)) {
+      let cipheredChar = cipherCharacter(charToCipher);
+      cipheredMessage = cipheredMessage + cipheredChar;
+    } else {
+      cipheredMessage = cipheredMessage + charToCipher;
+    }
   }
-}
 
-// Output the ciphered message
-alert(cipheredMessage);
-console.log(cipheredMessage);
+  // Output the ciphered message
+  alert(cipheredMessage);
+  console.log(cipheredMessage);
+}
